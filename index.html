@@ -371,101 +371,43 @@
     <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>3</span></div>
   </section>
 
-  <!-- 04 — Why it matters now (Systemic Drift) -->
-  <section id="why-now" class="slide">
-    <div class="slide-inner">
-      <p class="theme-label">04 · Why it matters now</p>
-      <h2 class="display" style="font-size:clamp(2.1rem,4.7vw,3.6rem)">
-        The Market Problem: <em>Systemic Drift</em>
-      </h2>
+  <!-- SLIDE 4 — The Market Problem: Systemic Drift -->
+<section id="market-problem" class="slide">
+  <div class="slide-inner">
+    <p class="theme-label">04 · The Market Problem</p>
 
-      <p class="body-lg" style="margin-top:16px;max-width:900px">
-        Enterprise marketing has crossed a structural threshold. Output expands fast, while brand judgment stays scarce.
-        When one scales and the other does not, drift becomes the default outcome.
-      </p>
+    <h2 class="display" style="max-width:980px">
+      The Market Problem:<br>
+      <em>Systemic Drift</em>
+    </h2>
 
-      <div class="drift-wrap">
-        <div class="drift-head">
-          <div>
-            <div class="drift-kicker">Structural view</div>
-          </div>
-          <div class="drift-legend">
-            <div class="legend-item"><span class="legend-swatch swatch-output"></span> Output volume</div>
-            <div class="legend-item"><span class="legend-swatch swatch-judge"></span> Human judgment</div>
-            <div class="legend-item"><span class="legend-swatch swatch-drift"></span> Systemic drift</div>
-          </div>
-        </div>
+    <p class="body-lg" style="margin-top:18px;max-width:760px">
+      Enterprise marketing has crossed a structural threshold.<br>
+      Content volume has exploded. Judgment remains the constraint.<br>
+      Most AI systems optimize for speed and cost. They execute with memory disconnected from the work, and taste left implicit.
+    </p>
 
-        <!-- Structural diagram (inline SVG) -->
-        <svg class="drift-svg" viewBox="0 0 1200 360" role="img" aria-label="Output scales while judgment does not, creating systemic drift">
-          <defs>
-            <linearGradient id="bgfade" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="rgba(15,20,25,0.05)"/>
-              <stop offset="1" stop-color="rgba(15,20,25,0)"/>
-            </linearGradient>
-
-            <linearGradient id="driftFill" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="rgba(232,93,45,0.12)"/>
-              <stop offset="1" stop-color="rgba(232,93,45,0.32)"/>
-            </linearGradient>
-
-            <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="rgba(0,0,0,0.15)"/>
-            </filter>
-          </defs>
-
-          <rect x="0" y="0" width="1200" height="360" fill="url(#bgfade)"/>
-
-          <!-- axis line -->
-          <line x1="80" y1="300" x2="1120" y2="300" stroke="rgba(15,20,25,0.15)" stroke-width="2"/>
-          <text x="80" y="330" font-family="Inter, sans-serif" font-size="14" fill="rgba(44,48,56,0.7)">Time</text>
-
-          <!-- Judgment line (mostly flat) -->
-          <path d="M110,210 C360,210 560,212 820,215 C980,218 1060,220 1120,220"
-                fill="none" stroke="#10b981" stroke-width="6" stroke-linecap="round"/>
-
-          <!-- Output line (rising) -->
-          <path d="M110,210 C320,195 520,165 700,125 C890,80 1040,55 1120,40"
-                fill="none" stroke="#5b8fd9" stroke-width="6" stroke-linecap="round"/>
-
-          <!-- Drift area between -->
-          <path d="M110,210
-                   C320,195 520,165 700,125 C890,80 1040,55 1120,40
-                   L1120,220
-                   C980,218 840,216 700,215 C520,212 320,210 110,210 Z"
-                fill="url(#driftFill)" filter="url(#softShadow)"/>
-
-          <!-- Labels -->
-          <text x="150" y="190" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="rgba(44,48,56,0.85)">
-            Start aligned
-          </text>
-
-          <text x="820" y="115" font-family="Inter, sans-serif" font-size="18" font-weight="800" fill="rgba(232,93,45,0.95)">
-            Systemic Drift
-          </text>
-          <text x="820" y="140" font-family="Inter, sans-serif" font-size="14" fill="rgba(44,48,56,0.75)">
-            Output outpaces governing judgment
-          </text>
-
-          <text x="920" y="30" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#5b8fd9">Output volume</text>
-          <text x="900" y="245" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#10b981">Human judgment</text>
-        </svg>
-
-        <div class="erosion-box">
-          <h4>The Erosion Pattern:</h4>
-          <div class="erosion-item">Brands look active while feeling thinner</div>
-          <div class="erosion-item">Performance improves while distinctiveness declines</div>
-          <div class="erosion-item">Quality varies across teams, partners, and markets</div>
-        </div>
-
-        <p class="statement" style="margin-top:18px">
-          This moves from a marketing issue to a brand value issue.<br>
-          Leadership decides who controls meaning at scale.
-        </p>
-      </div>
+    <div class="erosion-box" style="margin-top:26px;max-width:860px">
+      <h4 style="font-size:1.05rem">The Erosion Pattern:</h4>
+      <div class="erosion-item">Brands look active but feel thinner</div>
+      <div class="erosion-item">Performance metrics rise, distinctiveness becomes harder to hold</div>
+      <div class="erosion-item">Creative quality varies across teams, agencies, and markets</div>
     </div>
-    <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>4</span></div>
-  </section>
+
+    <p class="statement" style="margin-top:28px;max-width:900px">
+      This moves beyond marketing. It touches brand value.
+    </p>
+
+    <p style="margin-top:16px;font-size:1.05rem;color:var(--navy);font-weight:600;max-width:900px">
+      The decision becomes leadership: who controls brand meaning at scale.
+    </p>
+  </div>
+
+  <div class="slide-footer">
+    <span class="logo">BrandStudios<span>.AI</span></span>
+    <span>4</span>
+  </div>
+</section>
 
   <!-- 05 — What Gets Made -->
   <section id="what-gets-made" class="slide">
