@@ -11,6 +11,10 @@
       --navy:#0f1419; --navy-light:#1a2028; --orange:#e85d2d;
       --cream:#fafaf8; --warm-white:#fff; --text:#2c3038; --text-light:#5a6270;
       --green:#10b981; --blue:#5b8fd9; --muted:#d9dde3;
+
+      /* added to support the “Yes, we create assets…” slide exactly */
+      --sage:#8faf8a; --coral:#e07a5f;
+
       --serif:"Playfair Display",Georgia,serif; --sans:"Inter",-apple-system,BlinkMacSystemFont,sans-serif
     }
     *{margin:0;padding:0;box-sizing:border-box}
@@ -22,20 +26,10 @@
       position:fixed;top:0;left:0;right:0;z-index:1000;
       padding:18px 60px;background:rgba(250,250,248,.92);
       backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-      display:flex;align-items:center;justify-content:space-between
+      display:flex;align-items:center;justify-content:flex-start
     }
     .logo{font-weight:700;font-size:1rem;color:var(--navy);letter-spacing:-.02em}
     .logo span{color:var(--orange)}
-    .nav-hud-btn{
-      display:inline-flex;align-items:center;gap:8px;padding:10px 18px;
-      font-size:.75rem;font-weight:600;color:#fff;
-      background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);
-      border:none;border-radius:8px;cursor:pointer;text-decoration:none;
-      transition:all .2s ease;white-space:nowrap
-    }
-    .nav-hud-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(15,20,25,.2)}
-    .nav-hud-btn svg{width:14px;height:14px}
-    .nav-hud-btn span{color:var(--orange)}
 
     .slide{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 60px;position:relative}
     .slide-inner{max-width:1100px;width:100%}
@@ -67,12 +61,22 @@
     .center{text-align:center}
     .split{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
 
-    /* What gets made list */
-    .agenda-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 60px;margin-top:40px}
-    .agenda-item{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid #e5e5e5}
-    .agenda-item.nob{border-bottom:none}
-    .agenda-num{font-size:.85rem;font-weight:800;color:var(--orange);min-width:28px}
-    .agenda-title{font-size:.95rem;font-weight:800;color:var(--navy);margin-bottom:4px}
+    /* Cards */
+    .dimension-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+    .dimension-card{
+      background:linear-gradient(160deg,var(--navy-light) 0%,var(--navy) 100%);
+      border-radius:14px;padding:24px 20px;color:#fff;display:flex;flex-direction:column;min-height:220px
+    }
+    .dimension-card:nth-child(1){border-top:4px solid var(--orange)}
+    .dimension-card:nth-child(2){border-top:4px solid var(--blue)}
+    .dimension-card:nth-child(3){border-top:4px solid var(--green)}
+    .dimension-label{font-size:.55rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.55;margin-bottom:4px}
+    .dimension-card h3{font-family:var(--serif);font-size:1.3rem;font-weight:500;margin-bottom:10px}
+    .dimension-card p{font-size:.8rem;line-height:1.5;opacity:.88;flex-grow:1}
+    .dimension-tag{font-size:.65rem;font-weight:600;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,.12)}
+    .dimension-card:nth-child(1) .dimension-tag{color:var(--orange)}
+    .dimension-card:nth-child(2) .dimension-tag{color:var(--blue)}
+    .dimension-card:nth-child(3) .dimension-tag{color:var(--green)}
 
     /* Slide comparison panel */
     .compare-panel{
@@ -91,24 +95,7 @@
     .compare-subnote strong{color:rgba(255,255,255,.92)}
     .compare-examples{font-size:.9rem;color:rgba(255,255,255,.7);font-style:italic;margin-top:10px}
 
-    /* Cards */
-    .dimension-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
-    .dimension-card{
-      background:linear-gradient(160deg,var(--navy-light) 0%,var(--navy) 100%);
-      border-radius:14px;padding:24px 20px;color:#fff;display:flex;flex-direction:column;min-height:220px
-    }
-    .dimension-card:nth-child(1){border-top:4px solid var(--orange)}
-    .dimension-card:nth-child(2){border-top:4px solid var(--blue)}
-    .dimension-card:nth-child(3){border-top:4px solid var(--green)}
-    .dimension-label{font-size:.55rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.55;margin-bottom:4px}
-    .dimension-card h3{font-family:var(--serif);font-size:1.3rem;font-weight:500;margin-bottom:10px}
-    .dimension-card p{font-size:.8rem;line-height:1.5;opacity:.88;flex-grow:1}
-    .dimension-tag{font-size:.65rem;font-weight:600;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,.12)}
-    .dimension-card:nth-child(1) .dimension-tag{color:var(--orange)}
-    .dimension-card:nth-child(2) .dimension-tag{color:var(--blue)}
-    .dimension-card:nth-child(3) .dimension-tag{color:var(--green)}
-
-    /* Erosion */
+    /* Erosion box */
     .erosion-box{
       background:var(--warm-white);
       border-radius:14px;
@@ -119,6 +106,13 @@
     .erosion-box h4{font-weight:800;margin-bottom:10px;color:var(--navy)}
     .erosion-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:.95rem;color:var(--text)}
     .erosion-item::before{content:"✓";color:var(--green);font-weight:900;margin-top:1px}
+
+    /* What gets made list */
+    .agenda-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 60px;margin-top:40px}
+    .agenda-item{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid #e5e5e5}
+    .agenda-item.nob{border-bottom:none}
+    .agenda-num{font-size:.85rem;font-weight:800;color:var(--orange);min-width:28px}
+    .agenda-title{font-size:.95rem;font-weight:800;color:var(--navy);margin-bottom:4px}
 
     /* Proof tiles */
     .proof-tiles{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
@@ -209,7 +203,6 @@
       .slide{padding:60px 24px}
       header{padding:16px 24px}
       .slide-footer{left:24px;right:24px;bottom:24px}
-      .nav-hud-btn{padding:10px 14px}
     }
   </style>
 </head>
@@ -217,111 +210,15 @@
 <body>
   <header>
     <div class="logo">BrandStudios<span>.AI</span></div>
-    <a href="https://brandstudiosai-pre-viz.vercel.app/" target="_blank" class="nav-hud-btn" rel="noreferrer">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <rect x="3" y="3" width="7" height="7" rx="1" />
-        <rect x="14" y="3" width="7" height="7" rx="1" />
-        <rect x="3" y="14" width="7" height="7" rx="1" />
-        <rect x="14" y="14" width="7" height="7" rx="1" />
-      </svg>
-      OS <span>HUD</span>
-    </a>
   </header>
 
-  <!-- 01 — What Gets Made (LEAD WITH OUTPUT) -->
-  <section id="what-gets-made" class="slide">
-    <div class="slide-inner">
-      <p class="theme-label">01 · What gets made</p>
-      <h2 class="display" style="font-size:clamp(2rem,4.5vw,3.2rem)">What Gets Made</h2>
-      <p class="body-lg" style="margin-top:16px;max-width:820px">
-        BrandStudios.AI is used to produce real marketing work, continuously, across channels and markets.
-      </p>
-
-      <div class="agenda-grid">
-        <div class="agenda-item"><span class="agenda-num">01</span><div><h4 class="agenda-title">Campaign and launch copy</h4></div></div>
-        <div class="agenda-item"><span class="agenda-num">04</span><div><h4 class="agenda-title">Localized and regional adaptations</h4></div></div>
-        <div class="agenda-item"><span class="agenda-num">02</span><div><h4 class="agenda-title">Video and motion assets</h4></div></div>
-        <div class="agenda-item"><span class="agenda-num">05</span><div><h4 class="agenda-title">Sustained output across teams and partners</h4></div></div>
-        <div class="agenda-item nob"><span class="agenda-num">03</span><div><h4 class="agenda-title">Social and channel variations</h4></div></div>
-        <div class="agenda-item nob"><span class="agenda-num">06</span><div><h4 class="agenda-title">Judgment stays attached as volume expands</h4></div></div>
-      </div>
-
-      <p class="statement" style="margin-top:30px">
-        Assets get created.<br>
-        Everything that ships is intentional.
-      </p>
-    </div>
-    <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>1</span></div>
-  </section>
-
-  <!-- 02 — Definition (WHAT IT IS) -->
-  <section id="definition" class="slide">
-    <div class="slide-inner center">
-      <p class="theme-label" style="justify-content:center">02 · What it is</p>
-      <h1 class="display">The Creative <em>Operating System</em></h1>
-
-      <p class="body-lg" style="margin-top:26px;max-width:820px;margin-left:auto;margin-right:auto">
-        BrandStudios.AI is enterprise creative infrastructure.
-        It creates copy, video, and creative assets, then governs what earns the right to ship with consistency at scale.
-      </p>
-
-      <p class="body-lg" style="margin-top:14px;max-width:820px;margin-left:auto;margin-right:auto">
-        Human judgment stays in control.
-        The system carries it forward across teams, agencies, partners, and regions.
-      </p>
-
-      <p class="statement center" style="border:none;padding:0;margin-top:34px">
-        AI needs an operating system. This is the first OS for brand creative.
-      </p>
-    </div>
-    <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>2</span></div>
-  </section>
-
-  <!-- 03 — Systemic Drift (STRUCTURAL GRAPHIC SLIDE) -->
-  <section id="systemic-drift" class="slide">
-    <div class="slide-inner">
-      <div class="split">
-        <div>
-          <p class="theme-label">03 · Why it matters now</p>
-          <h2 class="headline">The market problem:<br><em>Systemic Drift</em></h2>
-          <p class="body-lg" style="margin-top:18px;max-width:520px">
-            Content volume has exploded. Judgment has not.
-            Most AI systems optimize for speed and cost. They execute with memory disconnected from the work and taste left implicit.
-          </p>
-
-          <div class="erosion-box" style="max-width:560px">
-            <h4>The erosion pattern:</h4>
-            <div class="erosion-item">Brands look active but feel thinner</div>
-            <div class="erosion-item">Performance rises, distinctiveness gets harder to hold</div>
-            <div class="erosion-item">Quality varies across teams, agencies, and markets</div>
-          </div>
-
-          <p class="statement" style="max-width:560px">
-            This moves beyond marketing. It touches brand value.
-          </p>
-
-          <p style="margin-top:14px;font-size:1rem;color:var(--navy);font-weight:600;max-width:560px">
-            The decision becomes leadership: who controls brand meaning at scale.
-          </p>
-        </div>
-
-        <div>
-          <!-- Use the same structural graphic asset the team already has -->
-          <img src="images/STRUCTURE.png" alt="Systemic Drift Structure"
-            style="width:100%;border-radius:16px;box-shadow:0 10px 34px rgba(0,0,0,.12)">
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>3</span></div>
-  </section>
-
-  <!-- 04 — Tools vs Operating Systems (PRODUCT VS OS) -->
+  <!-- 01 — Tools vs Operating Systems (SWAPPED to Page 1) -->
   <section id="tools-vs-os" class="slide">
     <div class="slide-inner">
-      <p class="theme-label">04 · Product vs operating system</p>
+      <p class="theme-label">01 · Tools vs Operating Systems</p>
       <h2 class="headline">Tools vs <em>Operating Systems</em></h2>
       <p class="body-lg" style="margin-top:12px;max-width:820px">
-        Tools generate output. Operating systems govern standards and carry judgment forward.
+        Tools generate output. Operating systems govern creative standards and carry judgment forward.
       </p>
 
       <div class="compare-panel">
@@ -348,7 +245,7 @@
         </div>
         <div class="compare-row">
           <div class="compare-cell muted">Increase volume</div>
-          <div class="compare-cell" style="text-align:right">Preserve coherence</div>
+          <div class="compare-cell" style="text-align:right">Preserve consistency</div>
         </div>
         <div class="compare-row">
           <div class="compare-cell muted">Operate in isolation</div>
@@ -360,21 +257,187 @@
           <div class="compare-cell" style="text-align:right;font-weight:900">BrandStudios.AI</div>
         </div>
 
-        <div class="compare-note">BrandStudios.AI lives above tools, not alongside them.</div>
+        <div class="compare-note">BrandStudios.AI operates above tools, not alongside them.</div>
         <div class="compare-subnote">
-          <strong>Creative Studio</strong> works with the generative tools already in use.
-          The tools generate output. The operating system carries judgment forward, applies Brand Grade and Drift, and makes sure the work adds up over time.
+          <strong>Creative Studio</strong> works with the generative tools already used. BrandStudios.AI sits above them.
+          The tools generate output. The operating system carries judgment forward, applies brand grade, and makes sure the work adds up over time.
         </div>
       </div>
     </div>
-    <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>4</span></div>
+    <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>1</span></div>
   </section>
 
-  <!-- 05 — The System (3 DIMENSIONS) -->
+  <!-- 02 — Definition (SWAPPED to Page 2) -->
+  <section id="title" class="slide">
+    <div class="slide-inner center">
+      <p class="theme-label" style="justify-content:center">The Creative Operating System</p>
+      <h1 class="display">The Creative <em>Operating System</em></h1>
+      <p class="body-lg" style="margin-top:28px;max-width:760px;margin-left:auto;margin-right:auto">
+        BrandStudios.AI is the operating system for brand creative. It produces copy, video, and creative assets, then governs what earns the right to ship with consistency at scale.
+      </p>
+      <p class="body-lg" style="margin-top:16px;max-width:760px;margin-left:auto;margin-right:auto">
+        Human judgment stays in control. The system carries it forward across teams, partners, and regions.
+      </p>
+      <p class="statement center" style="border:none;padding:0;margin-top:36px">
+        AI needs an operating system. This is the first OS for brand creative.
+      </p>
+    </div>
+    <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>2</span></div>
+  </section>
+
+  <!-- 03 — “Yes, we create assets…” (kept exactly, placed as Page 3) -->
+  <section id="difference" class="slide">
+    <div class="slide-inner">
+      <p class="theme-label">03 · The Difference That Matters</p>
+
+      <h2 class="display center" style="font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:12px">
+        <em>Yes, we create assets. And we govern everything that ships.</em>
+      </h2>
+      <p class="body-lg center" style="margin-bottom:28px;max-width:700px;margin-left:auto;margin-right:auto">
+        Tools generate output. BrandStudios governs decisions and consistency across teams, agencies, and markets.
+      </p>
+
+      <div style="background:var(--navy);border-radius:14px;padding:20px 24px;margin-bottom:16px">
+        <p style="font-size:.5rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:4px">
+          What Only BrandStudios.AI Does
+        </p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <p style="font-size:1rem;font-weight:600;color:#fff">The Human Intelligence Operating Layer</p>
+            <p style="font-size:.75rem;color:rgba(255,255,255,.7)">
+              Carries senior human judgment into every decision, governs what ships, and learns from every approval.
+            </p>
+          </div>
+          <span style="font-size:.5rem;font-weight:600;letter-spacing:.08em;padding:5px 12px;border:1px solid rgba(255,255,255,.2);border-radius:16px;color:rgba(255,255,255,.7)">
+            ORCHESTRATION
+          </span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px">
+          <div style="background:rgba(255,255,255,.05);padding:12px;border-radius:8px">
+            <p style="font-size:.45rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:3px">Brand DNA</p>
+            <p style="font-size:.65rem;color:rgba(255,255,255,.85);line-height:1.4">Learns from your best approved work</p>
+          </div>
+          <div style="background:rgba(255,255,255,.05);padding:12px;border-radius:8px">
+            <p style="font-size:.45rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);margin-bottom:3px">Quality Gates</p>
+            <p style="font-size:.65rem;color:rgba(255,255,255,.85);line-height:1.4">Brand Grade and Drift scoring on every asset</p>
+          </div>
+          <div style="background:rgba(255,255,255,.05);padding:12px;border-radius:8px">
+            <p style="font-size:.45rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:3px">Human Intelligence</p>
+            <p style="font-size:.65rem;color:rgba(255,255,255,.85);line-height:1.4">Judgment in the loop, compounding</p>
+          </div>
+          <div style="background:rgba(255,255,255,.05);padding:12px;border-radius:8px">
+            <p style="font-size:.45rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--coral);margin-bottom:3px">Tool Agnostic</p>
+            <p style="font-size:.65rem;color:rgba(255,255,255,.85);line-height:1.4">Connects and governs output from any AI tool</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--warm-white);border-radius:14px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,.04)">
+        <div style="display:grid;grid-template-columns:130px 1fr 1fr;border-bottom:2px solid #eee">
+          <div style="padding:14px"></div>
+          <div style="padding:14px 18px;border-left:1px solid #eee">
+            <p style="font-size:.5rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-light)">AI-Powered Tools</p>
+            <p style="font-size:.95rem;font-weight:600;color:var(--text);margin-top:3px">AI Creative Tools</p>
+            <p style="font-size:.7rem;color:var(--text-light)">Generate assets faster</p>
+            <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px">
+              <span style="font-size:.5rem;padding:2px 6px;background:#f0f0f0;border-radius:8px;color:var(--text-light)">Adobe GenStudio</span>
+              <span style="font-size:.5rem;padding:2px 6px;background:#f0f0f0;border-radius:8px;color:var(--text-light)">Jasper</span>
+              <span style="font-size:.5rem;padding:2px 6px;background:#f0f0f0;border-radius:8px;color:var(--text-light)">Canva</span>
+              <span style="font-size:.5rem;padding:2px 6px;background:#f0f0f0;border-radius:8px;color:var(--text-light)">Midjourney</span>
+              <span style="font-size:.5rem;padding:2px 6px;background:#f0f0f0;border-radius:8px;color:var(--text-light)">ChatGPT</span>
+            </div>
+          </div>
+          <div style="padding:14px 18px;border-left:1px solid #eee">
+            <p style="font-size:.5rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-light)">Operating System</p>
+            <p style="font-size:.95rem;font-weight:600;color:var(--navy);margin-top:3px">BrandStudios.AI</p>
+            <p style="font-size:.7rem;color:var(--text-light)">Create, govern, and learn at scale</p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:130px 1fr 1fr;border-bottom:1px solid #f0f0f0">
+          <div style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">Copy</div>
+          <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--text-light)">
+            <span style="color:#888">✓</span> AI-generated text and headlines
+          </div>
+          <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--navy);font-weight:500">
+            <span style="color:var(--green)">✓</span> Copy governed by Brand DNA and voice
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:130px 1fr 1fr;border-bottom:1px solid #f0f0f0">
+          <div style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">Images</div>
+          <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--text-light)">
+            <span style="color:#888">✓</span> AI-generated visuals
+          </div>
+          <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--navy);font-weight:500">
+            <span style="color:var(--green)">✓</span> Images scored for Brand Grade
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:130px 1fr 1fr;border-bottom:1px solid #f0f0f0">
+          <div style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">Video</div>
+          <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--text-light)">
+            <span style="color:#888">✓</span> AI-assisted video creation
+          </div>
+          <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--navy);font-weight:500">
+            <span style="color:var(--green)">✓</span> Video governed by brand standards
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:130px 1fr 1fr;border-bottom:1px solid #f0f0f0">
+          <div style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">Campaigns</div>
+          <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--text-light)">
+            <span style="color:#888">✓</span> Asset-by-asset production
+          </div>
+          <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--navy);font-weight:500">
+            <span style="color:var(--green)">✓</span> End-to-end campaign systems
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:130px 1fr 1fr;border-bottom:1px solid #f0f0f0">
+          <div style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">Scale</div>
+          <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--text-light)">
+            <span style="color:#888">✓</span> More assets, faster
+          </div>
+          <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--navy);font-weight:500">
+            <span style="color:var(--green)">✓</span> Scale without drift or governance drag
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:130px 1fr 1fr;border-bottom:1px solid #f0f0f0">
+          <div style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">Memory</div>
+          <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--text-light)">
+            Session-based, resets each project
+          </div>
+          <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--navy);font-weight:500">
+            <span style="color:var(--green)">✓</span> Persistent Brand Memory, 1,200+ attributes
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:130px 1fr 1fr">
+          <div style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">Learning</div>
+          <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--text-light)">
+            Starts over every project
+          </div>
+          <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--navy);font-weight:500">
+            <span style="color:var(--green)">✓</span> Every approval makes the system smarter
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>3</span></div>
+  </section>
+
+  <!-- 04 — The System -->
   <section id="the-system" class="slide">
     <div class="slide-inner">
-      <p class="theme-label">05 · BrandStudios system</p>
-      <h2 class="headline">One system. <em>Three connected dimensions.</em></h2>
+      <p class="theme-label">04 · The System</p>
+      <h2 class="headline">The Creative Operating System</h2>
+      <p class="display" style="font-size:clamp(1.5rem,2.8vw,2rem);margin-top:6px">
+        <em>One system. Three connected dimensions.</em>
+      </p>
 
       <div class="dimension-cards">
         <div class="dimension-card">
@@ -387,14 +450,14 @@
         <div class="dimension-card">
           <p class="dimension-label">Execution</p>
           <h3>Creative Studio</h3>
-          <p>Where copy, video, and creative assets are produced under the standard. Humans direct. Tools generate. The system governs.</p>
+          <p>Where copy, video, and creative assets are produced under the standard. Humans direct. Tools generate. The operating system governs.</p>
           <p class="dimension-tag">Where work happens</p>
         </div>
 
         <div class="dimension-card">
           <p class="dimension-label">Intelligence</p>
           <h3>Insight Loop</h3>
-          <p>Approvals, refinements, outcomes, and performance signals return to memory. Precision improves over time.</p>
+          <p>How outcomes and refinements strengthen future decisions. Learning returns to memory and improves precision over time.</p>
           <p class="dimension-tag">Where learning compounds</p>
         </div>
       </div>
@@ -403,53 +466,114 @@
         Memory sets the standard. Studio produces the work. Insight strengthens future decisions.
       </p>
     </div>
-    <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>5</span></div>
+    <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>4</span></div>
   </section>
 
-  <!-- 06 — Human Judgment (GOVERNANCE) -->
-  <section id="human-judgment" class="slide">
+  <!-- 05 — The Market Problem -->
+  <section id="market-problem" class="slide">
     <div class="slide-inner">
-      <div class="split">
-        <div>
-          <p class="theme-label">06 · Human governance</p>
-          <h2 class="display" style="font-size:clamp(2rem,4vw,3rem)">Human Judgment, <em>Operationalized</em></h2>
+      <p class="theme-label">05 · The Market Problem</p>
 
-          <p class="body-lg" style="margin-top:18px;max-width:560px">
-            Creative judgment comes from people.
-            BrandStudios.AI carries that judgment forward at enterprise scale, across offices, agencies, and regions.
-          </p>
+      <h2 class="display" style="max-width:980px">
+        The Market Problem:<br>
+        <em>Systemic Drift</em>
+      </h2>
 
-          <p class="body-lg" style="margin-top:14px;max-width:560px">
-            Work is measured before review, so attention concentrates where judgment matters most.
-          </p>
+      <p class="body-lg" style="margin-top:18px;max-width:760px">
+        Enterprise marketing has crossed a structural threshold.<br>
+        Content volume has exploded. Judgment remains the constraint.<br>
+        Most AI systems optimize for speed and cost. They execute with memory disconnected from the work, and taste left implicit.
+      </p>
 
-          <div class="dark-card" style="margin-top:22px;max-width:560px">
-            <div style="font-size:.95rem;font-weight:900;margin-bottom:8px">Authority</div>
-            <div style="opacity:.92;font-weight:700">Approve · Refine · Hold</div>
-          </div>
-
-          <p class="statement" style="margin-top:26px;max-width:560px">
-            Humans stay in control.<br>
-            The system prepares the decision.
-          </p>
-        </div>
-
-        <div style="display:flex;justify-content:center;align-items:center">
-          <img src="images/brand_dna_transparent_v2.png" alt="BrandStudios.AI Platform" style="width:100%;max-width:520px">
-        </div>
+      <div class="erosion-box" style="margin-top:26px;max-width:860px">
+        <h4 style="font-size:1.05rem">The Erosion Pattern:</h4>
+        <div class="erosion-item">Brands look active but feel thinner</div>
+        <div class="erosion-item">Performance metrics rise, distinctiveness becomes harder to hold</div>
+        <div class="erosion-item">Creative quality varies across teams, agencies, and markets</div>
       </div>
+
+      <p class="statement" style="margin-top:28px;max-width:900px">
+        This moves beyond marketing. It touches brand value.
+      </p>
+
+      <p style="margin-top:16px;font-size:1.05rem;color:var(--navy);font-weight:600;max-width:900px">
+        The decision becomes leadership: who controls brand meaning at scale.
+      </p>
+    </div>
+
+    <div class="slide-footer">
+      <span class="logo">BrandStudios<span>.AI</span></span>
+      <span>5</span>
+    </div>
+  </section>
+
+  <!-- 06 — What Gets Made -->
+  <section id="what-gets-made" class="slide">
+    <div class="slide-inner">
+      <p class="theme-label">06 · What gets made</p>
+      <h2 class="display" style="font-size:clamp(2rem,4.5vw,3.2rem)">What Gets Made</h2>
+      <p class="body-lg" style="margin-top:16px;max-width:820px">
+        BrandStudios.AI is used to produce real marketing work, continuously, across channels and markets.
+      </p>
+
+      <div class="agenda-grid">
+        <div class="agenda-item"><span class="agenda-num">01</span><div><h4 class="agenda-title">Campaign and launch copy</h4></div></div>
+        <div class="agenda-item"><span class="agenda-num">04</span><div><h4 class="agenda-title">Localized and regional adaptations</h4></div></div>
+        <div class="agenda-item"><span class="agenda-num">02</span><div><h4 class="agenda-title">Video and motion assets</h4></div></div>
+        <div class="agenda-item"><span class="agenda-num">05</span><div><h4 class="agenda-title">Creative production across teams and partners</h4></div></div>
+        <div class="agenda-item nob"><span class="agenda-num">03</span><div><h4 class="agenda-title">Social and channel variations</h4></div></div>
+        <div class="agenda-item nob"><span class="agenda-num">06</span><div><h4 class="agenda-title">Judgment stays attached as volume expands</h4></div></div>
+      </div>
+
+      <p class="statement" style="margin-top:30px">
+        The work scales.<br>
+        The standard stays coherent.
+      </p>
     </div>
     <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>6</span></div>
   </section>
 
-  <!-- 07 — Brand Fidelity (MEASURED BEFORE HUMAN) -->
+  <!-- 07 — Proof -->
+  <section id="proof-examples" class="slide">
+    <div class="slide-inner">
+      <p class="theme-label">07 · Proof</p>
+      <h2 class="display" style="font-size:clamp(2.1rem,4.7vw,3.6rem)">
+        Where the system holds and where it’s been <em>pressure-tested</em>
+      </h2>
+      <p class="body-lg" style="margin-top:14px;max-width:900px">
+        Tested in real enterprise conditions: thin Brand Memory, small decks, few assets, compressed timelines.
+      </p>
+
+      <div class="proof-tiles">
+        <div class="proof-tile">
+          <div class="proof-top">
+            <div class="proof-name">Jenni Kayne</div>
+            <div class="proof-tag">Proof</div>
+          </div>
+          <div class="proof-sub">Consistency without sameness.</div>
+        </div>
+
+        <div class="proof-tile">
+          <div class="proof-top">
+            <div class="proof-name">CYLNDR</div>
+            <div class="proof-tag">The Ask ↗</div>
+          </div>
+          <div class="proof-sub">Coherence under compression.</div>
+        </div>
+      </div>
+
+      <p class="statement" style="margin-top:28px">The system held in both.</p>
+    </div>
+    <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>7</span></div>
+  </section>
+
+  <!-- 08 — Brand Fidelity (SWAPPED to come before Governance) -->
   <section id="brand-fidelity" class="slide">
     <div class="slide-inner">
       <div class="split">
         <div>
-          <p class="theme-label">07 · Brand fidelity</p>
+          <p class="theme-label">08 · Brand Fidelity</p>
           <h2 class="headline"><em>Brand Fidelity</em></h2>
-
           <p class="body-lg" style="margin-top:16px;max-width:620px">
             Brand Fidelity reflects how consistently the creative standard holds as output expands.
             It shows alignment, drift, and where attention earns its return.
@@ -461,10 +585,7 @@
             <li><strong style="color:var(--orange)">Brand Fidelity</strong> = Grade balanced against Drift</li>
           </ul>
 
-          <p class="statement" style="margin-top:22px;max-width:620px">
-            Measured before review.<br>
-            Reinforced through use.
-          </p>
+          <p class="statement" style="margin-top:22px">Measured before review.<br>Reinforced through use.</p>
         </div>
 
         <div class="fidelity-card">
@@ -491,50 +612,46 @@
         </div>
       </div>
     </div>
-    <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>7</span></div>
-  </section>
-
-  <!-- 08 — Proof (NOW THAT THEY GET IT, SHOW WORK) -->
-  <section id="proof-examples" class="slide">
-    <div class="slide-inner">
-      <p class="theme-label">08 · Examples</p>
-      <h2 class="display" style="font-size:clamp(2.1rem,4.7vw,3.6rem)">
-        Where the system holds and where it’s been <em>pressure-tested</em>
-      </h2>
-      <p class="body-lg" style="margin-top:14px;max-width:900px">
-        Tested in real conditions: thin Brand Memory, small decks, few assets, compressed timelines.
-      </p>
-
-      <div class="proof-tiles">
-        <div class="proof-tile">
-          <div class="proof-top">
-            <div class="proof-name">Jenni Kayne</div>
-            <div class="proof-tag">Proof</div>
-          </div>
-          <div class="proof-sub">Consistency without sameness.</div>
-        </div>
-
-        <div class="proof-tile">
-          <div class="proof-top">
-            <div class="proof-name">CYLNDR</div>
-            <div class="proof-tag">The Ask ↗</div>
-          </div>
-          <div class="proof-sub">Coherence under compression.</div>
-        </div>
-      </div>
-
-      <p class="statement" style="margin-top:28px">The system held in both.</p>
-    </div>
     <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>8</span></div>
   </section>
 
-  <!-- 09 — Performance Signals -->
+  <!-- 09 — Human Judgment, Operationalized (SWAPPED to come after Brand Fidelity) -->
+  <section id="human-judgment" class="slide">
+    <div class="slide-inner">
+      <div class="split">
+        <div>
+          <p class="theme-label">09 · Governance</p>
+          <h2 class="display" style="font-size:clamp(2rem,4vw,3rem)">Human Judgment, <em>Operationalized</em></h2>
+          <p class="body-lg" style="margin-top:20px;max-width:560px">
+            Creative judgment comes from people. BrandStudios.AI carries that judgment forward at enterprise scale.
+          </p>
+          <p class="body-lg" style="margin-top:14px;max-width:560px">
+            Work is evaluated against the standard before it reaches a human, so attention concentrates where judgment matters most.
+          </p>
+
+          <div class="dark-card" style="margin-top:22px">
+            <div style="font-size:.95rem;font-weight:900;margin-bottom:8px">Authority</div>
+            <div style="opacity:.9;font-weight:700">Approve · Refine · Hold</div>
+          </div>
+
+          <p class="statement" style="margin-top:28px">Humans stay in control.<br>The system prepares the decision.</p>
+        </div>
+
+        <div style="display:flex;justify-content:center;align-items:center">
+          <img src="images/brand_dna_transparent_v2.png" alt="BrandStudios.AI Platform" style="width:100%;max-width:520px">
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>9</span></div>
+  </section>
+
+  <!-- 10 — Performance Signals -->
   <section id="performance-signals" class="slide">
     <div class="slide-inner">
-      <p class="theme-label">09 · Performance signals</p>
+      <p class="theme-label">10 · Performance Signals</p>
       <h2 class="headline"><em>Performance</em> Signals</h2>
       <p class="body-lg" style="margin-top:12px;max-width:860px">
-        Signals from real workflows as the system learns from people. Compounding clarity, not one-off optimization.
+        These are signals from real workflows as the system learns from people. They reflect compounding clarity, not one-off optimization.
       </p>
 
       <div class="outcomes-grid">
@@ -560,17 +677,16 @@
 
       <p class="statement" style="margin-top:28px">Scale improves as the system learns from people.</p>
     </div>
-    <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>9</span></div>
+    <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>10</span></div>
   </section>
 
-  <!-- 10 — Enterprise Impact -->
+  <!-- 11 — Proof → Enterprise Impact -->
   <section id="enterprise-impact" class="slide">
     <div class="slide-inner">
-      <p class="theme-label">10 · Enterprise impact</p>
+      <p class="theme-label">11 · Enterprise Impact</p>
       <h2 class="headline">Proof → <em>Enterprise Impact</em></h2>
       <p class="body-lg" style="margin-top:14px;max-width:880px">
-        One approved creative reference becomes a reusable standard.
-        From that reference, the system carries judgment forward, applies it across formats, and maintains coherence as output expands.
+        One approved creative reference becomes a reusable standard. From that reference, the system carries judgment forward, applies it across formats, and maintains coherence as output expands.
       </p>
 
       <div class="impact-box">
@@ -580,20 +696,16 @@
         <div class="impact-item">Confidence increases in what ships</div>
       </div>
 
-      <p class="statement" style="margin-top:28px">
-        One standard.<br>
-        Many executions.<br>
-        Institutional memory for creative work.
-      </p>
+      <p class="statement" style="margin-top:28px">One standard.<br>Many executions.<br>Institutional memory for creative work.</p>
     </div>
-    <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>10</span></div>
+    <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>11</span></div>
   </section>
 
-  <!-- 11 — Who This Is For -->
+  <!-- 12 — Who This Is For -->
   <section id="who-for" class="slide">
     <div class="slide-inner">
-      <p class="theme-label">11 · Who this is for</p>
-      <h2 class="headline">Built for <em>enterprise scale</em></h2>
+      <p class="theme-label">12 · Who this is for</p>
+      <h2 class="headline">Who This Is <em>For</em></h2>
       <p class="body-lg" style="margin-top:14px;max-width:840px">
         Organizations responsible for creative coherence across markets, teams, partners, and locations.
       </p>
@@ -601,17 +713,17 @@
       <div class="who-grid">
         <div class="who-card">
           <h3>Enterprises</h3>
-          <p>Operating across regions, categories, and business units. Multiple teams. Multiple offices. One standard.</p>
+          <p>Operating across markets, regions, categories, and business units.</p>
         </div>
 
         <div class="who-card alt">
           <h3>Enterprise Networks</h3>
-          <p>Coordinating agencies and specialist partners without fragmenting continuity or reopening decisions.</p>
+          <p>Coordinating multiple teams and partners with shared standards.</p>
         </div>
 
         <div class="who-card full">
-          <h3>Global Creative Organizations</h3>
-          <p>Talent gaps, velocity, localization, and constant channel adaptation. Judgment holds while output grows.</p>
+          <h3>Creative Organizations</h3>
+          <p>Working through talent gaps, high velocity, and continuous adaptation across channels.</p>
         </div>
       </div>
 
@@ -620,27 +732,10 @@
         Execution scales across people, partners, and locations.
       </p>
     </div>
-    <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>11</span></div>
-  </section>
-
-  <!-- 12 — End State -->
-  <section id="end-state" class="slide">
-    <div class="slide-inner center">
-      <p class="theme-label" style="justify-content:center">12 · The end state</p>
-      <h2 class="display">The <em>End State</em></h2>
-      <p class="body-lg" style="margin-top:20px;max-width:820px;margin-left:auto;margin-right:auto">
-        The more the system is used, the more it behaves like a shared creative mind:
-        memory, judgment, and learning carried forward.
-      </p>
-      <p class="statement center" style="border:none;padding:0;margin-top:36px">
-        Human intelligence.<br>
-        Carried forward.
-      </p>
-    </div>
     <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>12</span></div>
   </section>
 
-  <!-- 13 — Close -->
+  <!-- 13 — Close (end-state folded in) -->
   <section id="close" class="slide">
     <div class="slide-inner">
       <div class="split">
@@ -652,8 +747,12 @@
           <p class="body-lg" style="margin-top:20px;font-size:1.3rem;font-weight:700;color:var(--navy)">
             The Creative Operating System, Powered by Human Intelligence™
           </p>
-          <p class="body-lg" style="margin-top:14px;max-width:520px">
-            Assets get created. Creative decisions get governed. Everything that ships is intentional.
+          <p class="body-lg" style="margin-top:16px;max-width:520px">
+            The more the system is used, the more it behaves like a shared creative mind: memory, judgment, and learning carried forward.
+          </p>
+          <p class="statement" style="margin-top:24px">
+            Human intelligence.<br>
+            Carried forward.
           </p>
         </div>
       </div>
