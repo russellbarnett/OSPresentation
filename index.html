@@ -1,189 +1,672 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BrandStudios.AI — The Creative Operating System</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <style>
-    :root{
-      --navy:#0f1419; --navy-light:#1a2028; --orange:#e85d2d;
-      --cream:#fafaf8; --warm-white:#fff; --text:#2c3038; --text-light:#5a6270;
-      --green:#10b981; --blue:#5b8fd9; --muted:#d9dde3;
+    :root {
+      --navy: #0f1419;
+      --navy-light: #1a2028;
+      --orange: #e85d2d;
+      --cream: #fafaf8;
+      --warm-white: #fff;
+      --text: #2c3038;
+      --text-light: #5a6270;
+      --green: #10b981;
+      --blue: #5b8fd9;
+      --muted: #d9dde3;
 
       /* supports the “Yes, we create assets…” slide */
-      --sage:#8faf8a; --coral:#e07a5f;
+      --sage: #8faf8a;
+      --coral: #e07a5f;
 
-      --serif:"Playfair Display",Georgia,serif; --sans:"Inter",-apple-system,BlinkMacSystemFont,sans-serif
-    }
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{font-family:var(--sans);background:var(--cream);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
-
-    header{
-      position:fixed;top:0;left:0;right:0;z-index:1000;
-      padding:18px 60px;background:rgba(250,250,248,.92);
-      backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-      display:flex;align-items:center;justify-content:flex-start
-    }
-    .logo{font-weight:700;font-size:1rem;color:var(--navy);letter-spacing:-.02em}
-    .logo span{color:var(--orange)}
-
-    .slide{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 60px;position:relative}
-    .slide-inner{max-width:1100px;width:100%}
-    .slide-footer{
-      position:absolute;bottom:32px;left:60px;right:60px;
-      display:flex;justify-content:space-between;font-size:.75rem;color:var(--text-light)
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif
     }
 
-    .theme-label{
-      font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-      color:var(--orange);margin-bottom:16px;display:flex;align-items:center;gap:10px
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
     }
-    .theme-label::before{content:"";width:24px;height:2px;background:var(--orange)}
-    .display{
-      font-family:var(--serif);font-size:clamp(2.5rem,5.5vw,4rem);
-      font-weight:400;line-height:1.1;letter-spacing:-.02em;color:var(--navy)
+
+    html {
+      scroll-behavior: smooth
     }
-    .display em{color:var(--orange);font-style:italic}
-    .headline{
-      font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);
-      font-weight:400;line-height:1.15;letter-spacing:-.02em;color:var(--navy)
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased
     }
-    .headline em{color:var(--orange);font-style:italic}
-    .body-lg{font-size:1.1rem;line-height:1.7;color:var(--text-light)}
-    .statement{
-      font-family:var(--serif);font-size:1.2rem;font-style:italic;line-height:1.5;color:var(--text-light);
-      border-left:3px solid var(--orange);padding-left:24px;margin-top:32px
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 18px 60px;
+      background: rgba(250, 250, 248, .92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start
     }
-    .center{text-align:center}
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+
+    .logo {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--navy);
+      letter-spacing: -.02em
+    }
+
+    .logo span {
+      color: var(--orange)
+    }
+
+    .slide {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 60px;
+      position: relative
+    }
+
+    .slide-inner {
+      max-width: 1100px;
+      width: 100%
+    }
+
+    .slide-footer {
+      position: absolute;
+      bottom: 32px;
+      left: 60px;
+      right: 60px;
+      display: flex;
+      justify-content: space-between;
+      font-size: .75rem;
+      color: var(--text-light)
+    }
+
+    .theme-label {
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .theme-label::before {
+      content: "";
+      width: 24px;
+      height: 2px;
+      background: var(--orange)
+    }
+
+    .display {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      color: var(--navy)
+    }
+
+    .display em {
+      color: var(--orange);
+      font-style: italic
+    }
+
+    .headline {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      color: var(--navy)
+    }
+
+    .headline em {
+      color: var(--orange);
+      font-style: italic
+    }
+
+    .body-lg {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-light)
+    }
+
+    .statement {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--text-light);
+      border-left: 3px solid var(--orange);
+      padding-left: 24px;
+      margin-top: 32px
+    }
+
+    .center {
+      text-align: center
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center
+    }
 
     /* Cards */
-    .dimension-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
-    .dimension-card{
-      background:linear-gradient(160deg,var(--navy-light) 0%,var(--navy) 100%);
-      border-radius:14px;padding:24px 20px;color:#fff;display:flex;flex-direction:column;min-height:220px
+    .dimension-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 32px
     }
-    .dimension-card:nth-child(1){border-top:4px solid var(--orange)}
-    .dimension-card:nth-child(2){border-top:4px solid var(--blue)}
-    .dimension-card:nth-child(3){border-top:4px solid var(--green)}
-    .dimension-label{font-size:.55rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.55;margin-bottom:4px}
-    .dimension-card h3{font-family:var(--serif);font-size:1.3rem;font-weight:500;margin-bottom:10px}
-    .dimension-card p{font-size:.8rem;line-height:1.5;opacity:.88;flex-grow:1}
-    .dimension-tag{font-size:.65rem;font-weight:600;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,.12)}
-    .dimension-card:nth-child(1) .dimension-tag{color:var(--orange)}
-    .dimension-card:nth-child(2) .dimension-tag{color:var(--blue)}
-    .dimension-card:nth-child(3) .dimension-tag{color:var(--green)}
+
+    .dimension-card {
+      background: linear-gradient(160deg, var(--navy-light) 0%, var(--navy) 100%);
+      border-radius: 14px;
+      padding: 24px 20px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px
+    }
+
+    .dimension-card:nth-child(1) {
+      border-top: 4px solid var(--orange)
+    }
+
+    .dimension-card:nth-child(2) {
+      border-top: 4px solid var(--blue)
+    }
+
+    .dimension-card:nth-child(3) {
+      border-top: 4px solid var(--green)
+    }
+
+    .dimension-label {
+      font-size: .55rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      opacity: .55;
+      margin-bottom: 4px
+    }
+
+    .dimension-card h3 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 10px
+    }
+
+    .dimension-card p {
+      font-size: .8rem;
+      line-height: 1.5;
+      opacity: .88;
+      flex-grow: 1
+    }
+
+    .dimension-tag {
+      font-size: .65rem;
+      font-weight: 600;
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, .12)
+    }
+
+    .dimension-card:nth-child(1) .dimension-tag {
+      color: var(--orange)
+    }
+
+    .dimension-card:nth-child(2) .dimension-tag {
+      color: var(--blue)
+    }
+
+    .dimension-card:nth-child(3) .dimension-tag {
+      color: var(--green)
+    }
 
     /* Erosion box */
-    .erosion-box{
-      background:var(--warm-white);
-      border-radius:14px;
-      padding:18px 20px;
-      border:1px solid #eee;
-      margin-top:18px
+    .erosion-box {
+      background: var(--warm-white);
+      border-radius: 14px;
+      padding: 18px 20px;
+      border: 1px solid #eee;
+      margin-top: 18px
     }
-    .erosion-box h4{font-weight:800;margin-bottom:10px;color:var(--navy)}
-    .erosion-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:.95rem;color:var(--text)}
-    .erosion-item::before{content:"✓";color:var(--green);font-weight:900;margin-top:1px}
+
+    .erosion-box h4 {
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--navy)
+    }
+
+    .erosion-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: .95rem;
+      color: var(--text)
+    }
+
+    .erosion-item::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: 900;
+      margin-top: 1px
+    }
 
     /* What gets made list */
-    .agenda-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 60px;margin-top:40px}
-    .agenda-item{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid #e5e5e5}
-    .agenda-item.nob{border-bottom:none}
-    .agenda-num{font-size:.85rem;font-weight:800;color:var(--orange);min-width:28px}
-    .agenda-title{font-size:.95rem;font-weight:800;color:var(--navy);margin-bottom:4px}
+    .agenda-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 60px;
+      margin-top: 40px
+    }
+
+    .agenda-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid #e5e5e5
+    }
+
+    .agenda-item.nob {
+      border-bottom: none
+    }
+
+    .agenda-num {
+      font-size: .85rem;
+      font-weight: 800;
+      color: var(--orange);
+      min-width: 28px
+    }
+
+    .agenda-title {
+      font-size: .95rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 4px
+    }
 
     /* Proof tiles */
-    .proof-tiles{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
-    .proof-tile{
-      background:var(--warm-white);border:1px solid #eee;border-radius:16px;
-      padding:22px 22px;box-shadow:0 10px 28px rgba(0,0,0,.05);
-      border-top:4px solid var(--orange)
+    .proof-tiles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 34px
     }
-    .proof-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .proof-name{font-size:1.05rem;font-weight:900;color:var(--navy)}
-    .proof-tag{
-      font-size:.7rem;font-weight:800;color:var(--orange);
-      background:rgba(232,93,45,.08);border:1px solid rgba(232,93,45,.16);
-      padding:6px 10px;border-radius:999px;white-space:nowrap
+
+    .proof-tile {
+      background: var(--warm-white);
+      border: 1px solid #eee;
+      border-radius: 16px;
+      padding: 22px 22px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .05);
+      border-top: 4px solid var(--orange)
     }
-    .proof-sub{margin-top:8px;font-family:var(--serif);font-style:italic;color:var(--text-light);font-size:1rem;line-height:1.35}
+
+    .proof-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px
+    }
+
+    .proof-name {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--navy)
+    }
+
+    .proof-tag {
+      font-size: .7rem;
+      font-weight: 800;
+      color: var(--orange);
+      background: rgba(232, 93, 45, .08);
+      border: 1px solid rgba(232, 93, 45, .16);
+      padding: 6px 10px;
+      border-radius: 999px;
+      white-space: nowrap
+    }
+
+    .proof-sub {
+      margin-top: 8px;
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.35
+    }
 
     /* Fidelity */
-    .fidelity-card{background:linear-gradient(160deg,#1a2028 0%,#0f1419 100%);border-radius:14px;padding:22px;color:#fff;max-width:340px}
-    .fidelity-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.1)}
-    .fidelity-title{font-weight:700;font-size:.75rem}
-    .fidelity-subtitle{font-size:.55rem;opacity:.55;margin-top:2px}
-    .fidelity-score{
-      font-family:var(--serif);font-size:1.6rem;font-weight:500;
-      background:linear-gradient(135deg,#10b981,#34d399);
-      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1
+    .fidelity-card {
+      background: linear-gradient(160deg, #1a2028 0%, #0f1419 100%);
+      border-radius: 14px;
+      padding: 22px;
+      color: #fff;
+      max-width: 340px
     }
-    .fidelity-row{display:grid;grid-template-columns:90px 1fr 55px;gap:6px;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.6rem}
-    .fidelity-bar{height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden}
-    .fidelity-fill{height:100%;background:linear-gradient(90deg,#10b981,#34d399);border-radius:2px}
-    .fidelity-fill.warn{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
-    .status{font-size:.5rem;font-weight:700;text-align:right}
-    .status-pass{color:#34d399}
-    .status-warn{color:#fbbf24}
-    .fidelity-result{
-      margin-top:12px;padding:7px 10px;background:rgba(16,185,129,.15);
-      border:1px solid rgba(16,185,129,.3);border-radius:6px;color:#34d399;font-weight:800;font-size:.65rem;
-      display:flex;align-items:center;gap:5px
+
+    .fidelity-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, .1)
     }
-    .simple-list{list-style:none;margin-top:18px}
-    .simple-list li{padding:7px 0;font-size:.95rem;color:var(--text);display:flex;align-items:flex-start;gap:10px}
-    .simple-list li::before{content:"";width:5px;height:5px;background:var(--orange);border-radius:50%;flex-shrink:0;margin-top:8px}
+
+    .fidelity-title {
+      font-weight: 700;
+      font-size: .75rem
+    }
+
+    .fidelity-subtitle {
+      font-size: .55rem;
+      opacity: .55;
+      margin-top: 2px
+    }
+
+    .fidelity-score {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 500;
+      background: linear-gradient(135deg, #10b981, #34d399);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1
+    }
+
+    .fidelity-row {
+      display: grid;
+      grid-template-columns: 90px 1fr 55px;
+      gap: 6px;
+      align-items: center;
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .05);
+      font-size: .6rem
+    }
+
+    .fidelity-bar {
+      height: 4px;
+      background: rgba(255, 255, 255, .1);
+      border-radius: 2px;
+      overflow: hidden
+    }
+
+    .fidelity-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #10b981, #34d399);
+      border-radius: 2px
+    }
+
+    .fidelity-fill.warn {
+      background: linear-gradient(90deg, #f59e0b, #fbbf24)
+    }
+
+    .status {
+      font-size: .5rem;
+      font-weight: 700;
+      text-align: right
+    }
+
+    .status-pass {
+      color: #34d399
+    }
+
+    .status-warn {
+      color: #fbbf24
+    }
+
+    .fidelity-result {
+      margin-top: 12px;
+      padding: 7px 10px;
+      background: rgba(16, 185, 129, .15);
+      border: 1px solid rgba(16, 185, 129, .3);
+      border-radius: 6px;
+      color: #34d399;
+      font-weight: 800;
+      font-size: .65rem;
+      display: flex;
+      align-items: center;
+      gap: 5px
+    }
+
+    .simple-list {
+      list-style: none;
+      margin-top: 18px
+    }
+
+    .simple-list li {
+      padding: 7px 0;
+      font-size: .95rem;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px
+    }
+
+    .simple-list li::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      background: var(--orange);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 8px
+    }
 
     /* Outcomes */
-    .outcomes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
-    .outcome-card{background:var(--warm-white);border-radius:14px;padding:20px;border-top:4px solid}
-    .outcome-card:nth-child(1){border-top-color:var(--orange)}
-    .outcome-card:nth-child(2){border-top-color:var(--green)}
-    .outcome-card:nth-child(3){border-top-color:var(--blue)}
-    .outcome-label{font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--text-light);margin-bottom:12px}
-    .outcome-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:.85rem}
-    .outcome-value{font-weight:900}
-    .outcome-value.down,.outcome-value.up{color:var(--green)}
-    .outcome-value.change{color:var(--blue)}
+    .outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 32px
+    }
+
+    .outcome-card {
+      background: var(--warm-white);
+      border-radius: 14px;
+      padding: 20px;
+      border-top: 4px solid
+    }
+
+    .outcome-card:nth-child(1) {
+      border-top-color: var(--orange)
+    }
+
+    .outcome-card:nth-child(2) {
+      border-top-color: var(--green)
+    }
+
+    .outcome-card:nth-child(3) {
+      border-top-color: var(--blue)
+    }
+
+    .outcome-label {
+      font-size: .55rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 12px
+    }
+
+    .outcome-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      font-size: .85rem
+    }
+
+    .outcome-value {
+      font-weight: 900
+    }
+
+    .outcome-value.down,
+    .outcome-value.up {
+      color: var(--green)
+    }
+
+    .outcome-value.change {
+      color: var(--blue)
+    }
 
     /* Impact box */
-    .impact-box{
-      background:var(--warm-white);
-      border-radius:16px;padding:22px 24px;border:1px solid #eee;margin-top:26px;
-      box-shadow:0 10px 28px rgba(0,0,0,.05)
+    .impact-box {
+      background: var(--warm-white);
+      border-radius: 16px;
+      padding: 22px 24px;
+      border: 1px solid #eee;
+      margin-top: 26px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .05)
     }
-    .impact-box h4{font-weight:900;margin-bottom:12px;color:var(--navy)}
-    .impact-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:.95rem;color:var(--text)}
-    .impact-item::before{content:"✓";color:var(--green);font-weight:900;margin-top:1px}
+
+    .impact-box h4 {
+      font-weight: 900;
+      margin-bottom: 12px;
+      color: var(--navy)
+    }
+
+    .impact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: .95rem;
+      color: var(--text)
+    }
+
+    .impact-item::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: 900;
+      margin-top: 1px
+    }
 
     /* Who for cards */
-    .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:860px;margin-top:32px}
-    .who-card{background:var(--warm-white);border-radius:16px;padding:22px;border:1px solid #eee;border-top:4px solid var(--orange)}
-    .who-card.alt{border-top-color:var(--blue)}
-    .who-card.full{grid-column:span 2;border-top-color:var(--green)}
-    .who-card h3{font-size:1rem;font-weight:900;color:var(--navy);margin-bottom:8px}
-    .who-card p{font-size:.9rem;color:var(--text-light);line-height:1.5}
+    .who-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      max-width: 860px;
+      margin-top: 32px
+    }
+
+    .who-card {
+      background: var(--warm-white);
+      border-radius: 16px;
+      padding: 22px;
+      border: 1px solid #eee;
+      border-top: 4px solid var(--orange)
+    }
+
+    .who-card.alt {
+      border-top-color: var(--blue)
+    }
+
+    .who-card.full {
+      grid-column: span 2;
+      border-top-color: var(--green)
+    }
+
+    .who-card h3 {
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 8px
+    }
+
+    .who-card p {
+      font-size: .9rem;
+      color: var(--text-light);
+      line-height: 1.5
+    }
 
     /* Dark card */
-    .dark-card{background:linear-gradient(160deg,var(--navy-light) 0%,var(--navy) 100%);color:#fff;padding:24px;border-radius:16px}
-
-    @media(max-width:1024px){
-      .slide{padding:80px 40px}
-      header{padding:20px 40px}
-      .split{grid-template-columns:1fr;gap:36px}
-      .slide-footer{left:40px;right:40px}
-      .dimension-cards,.outcomes-grid,.proof-tiles,.who-grid{grid-template-columns:1fr}
-      .who-card.full{grid-column:auto}
-      .agenda-grid{grid-template-columns:1fr;gap:0}
+    .dark-card {
+      background: linear-gradient(160deg, var(--navy-light) 0%, var(--navy) 100%);
+      color: #fff;
+      padding: 24px;
+      border-radius: 16px
     }
-    @media(max-width:768px){
-      .slide{padding:60px 24px}
-      header{padding:16px 24px}
-      .slide-footer{left:24px;right:24px;bottom:24px}
+
+    @media(max-width:1024px) {
+      .slide {
+        padding: 80px 40px
+      }
+
+      header {
+        padding: 20px 40px
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+        gap: 36px
+      }
+
+      .slide-footer {
+        left: 40px;
+        right: 40px
+      }
+
+      .dimension-cards,
+      .outcomes-grid,
+      .proof-tiles,
+      .who-grid {
+        grid-template-columns: 1fr
+      }
+
+      .who-card.full {
+        grid-column: auto
+      }
+
+      .agenda-grid {
+        grid-template-columns: 1fr;
+        gap: 0
+      }
+    }
+
+    @media(max-width:768px) {
+      .slide {
+        padding: 60px 24px
+      }
+
+      header {
+        padding: 16px 24px
+      }
+
+      .slide-footer {
+        left: 24px;
+        right: 24px;
+        bottom: 24px
+      }
     }
   </style>
 </head>
@@ -199,7 +682,8 @@
       <p class="theme-label" style="justify-content:center">The Creative Operating System</p>
       <h1 class="display">The Creative <em>Operating System</em></h1>
       <p class="body-lg" style="margin-top:28px;max-width:760px;margin-left:auto;margin-right:auto">
-        BrandStudios.AI is the operating system for brand creative. It produces copy, video, and creative assets, then governs what earns the right to ship with consistency at scale.
+        BrandStudios.AI is the operating system for brand creative. It produces copy, video, and creative assets, then
+        governs what earns the right to ship with consistency at scale.
       </p>
       <p class="body-lg" style="margin-top:16px;max-width:760px;margin-left:auto;margin-right:auto">
         Human judgment stays in control. The system carries it forward across teams, partners, and regions.
@@ -221,12 +705,36 @@
       </p>
 
       <div class="agenda-grid">
-        <div class="agenda-item"><span class="agenda-num">01</span><div><h4 class="agenda-title">Campaign and launch copy</h4></div></div>
-        <div class="agenda-item"><span class="agenda-num">04</span><div><h4 class="agenda-title">Localized and regional adaptations</h4></div></div>
-        <div class="agenda-item"><span class="agenda-num">02</span><div><h4 class="agenda-title">Video and motion assets</h4></div></div>
-        <div class="agenda-item"><span class="agenda-num">05</span><div><h4 class="agenda-title">Creative production across teams and partners</h4></div></div>
-        <div class="agenda-item nob"><span class="agenda-num">03</span><div><h4 class="agenda-title">Social and channel variations</h4></div></div>
-        <div class="agenda-item nob"><span class="agenda-num">06</span><div><h4 class="agenda-title">Judgment stays attached as volume expands</h4></div></div>
+        <div class="agenda-item"><span class="agenda-num">01</span>
+          <div>
+            <h4 class="agenda-title">Campaign and launch copy</h4>
+          </div>
+        </div>
+        <div class="agenda-item"><span class="agenda-num">04</span>
+          <div>
+            <h4 class="agenda-title">Localized and regional adaptations</h4>
+          </div>
+        </div>
+        <div class="agenda-item"><span class="agenda-num">02</span>
+          <div>
+            <h4 class="agenda-title">Video and motion assets</h4>
+          </div>
+        </div>
+        <div class="agenda-item"><span class="agenda-num">05</span>
+          <div>
+            <h4 class="agenda-title">Creative production across teams and partners</h4>
+          </div>
+        </div>
+        <div class="agenda-item nob"><span class="agenda-num">03</span>
+          <div>
+            <h4 class="agenda-title">Social and channel variations</h4>
+          </div>
+        </div>
+        <div class="agenda-item nob"><span class="agenda-num">06</span>
+          <div>
+            <h4 class="agenda-title">Judgment stays attached as volume expands</h4>
+          </div>
+        </div>
       </div>
 
       <p class="statement" style="margin-top:30px">
@@ -250,7 +758,8 @@
       </p>
 
       <div style="background:var(--navy);border-radius:14px;padding:20px 24px;margin-bottom:16px">
-        <p style="font-size:.5rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:4px">
+        <p
+          style="font-size:.5rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:4px">
           What Only BrandStudios.AI Does
         </p>
         <div style="display:flex;justify-content:space-between;align-items:center;gap:14px">
@@ -260,55 +769,81 @@
               Carries senior human judgment into every decision, governs what ships, and learns from every approval.
             </p>
           </div>
-          <span style="font-size:.5rem;font-weight:600;letter-spacing:.08em;padding:5px 12px;border:1px solid rgba(255,255,255,.2);border-radius:16px;color:rgba(255,255,255,.7)">
+          <span
+            style="font-size:.5rem;font-weight:600;letter-spacing:.08em;padding:5px 12px;border:1px solid rgba(255,255,255,.2);border-radius:16px;color:rgba(255,255,255,.7)">
             ORCHESTRATION
           </span>
         </div>
 
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px">
           <div style="background:rgba(255,255,255,.05);padding:12px;border-radius:8px">
-            <p style="font-size:.45rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:3px">Brand DNA</p>
-            <p style="font-size:.65rem;color:rgba(255,255,255,.85);line-height:1.4">Learns from your best approved work</p>
+            <p
+              style="font-size:.45rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:3px">
+              Brand DNA</p>
+            <p style="font-size:.65rem;color:rgba(255,255,255,.85);line-height:1.4">Learns from your best approved work
+            </p>
           </div>
           <div style="background:rgba(255,255,255,.05);padding:12px;border-radius:8px">
-            <p style="font-size:.45rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);margin-bottom:3px">Quality Gates</p>
-            <p style="font-size:.65rem;color:rgba(255,255,255,.85);line-height:1.4">Brand Grade and Drift scoring on every asset</p>
+            <p
+              style="font-size:.45rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);margin-bottom:3px">
+              Quality Gates</p>
+            <p style="font-size:.65rem;color:rgba(255,255,255,.85);line-height:1.4">Brand Grade and Drift scoring on
+              every asset</p>
           </div>
           <div style="background:rgba(255,255,255,.05);padding:12px;border-radius:8px">
-            <p style="font-size:.45rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:3px">Human Intelligence</p>
-            <p style="font-size:.65rem;color:rgba(255,255,255,.85);line-height:1.4">Judgment in the loop, compounding</p>
+            <p
+              style="font-size:.45rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:3px">
+              Human Intelligence</p>
+            <p style="font-size:.65rem;color:rgba(255,255,255,.85);line-height:1.4">Judgment in the loop, compounding
+            </p>
           </div>
           <div style="background:rgba(255,255,255,.05);padding:12px;border-radius:8px">
-            <p style="font-size:.45rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--coral);margin-bottom:3px">Tool Agnostic</p>
-            <p style="font-size:.65rem;color:rgba(255,255,255,.85);line-height:1.4">Connects and governs output from any AI tool</p>
+            <p
+              style="font-size:.45rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--coral);margin-bottom:3px">
+              Tool Agnostic</p>
+            <p style="font-size:.65rem;color:rgba(255,255,255,.85);line-height:1.4">Connects and governs output from any
+              AI tool</p>
           </div>
         </div>
       </div>
 
-      <div style="background:var(--warm-white);border-radius:14px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,.04)">
+      <div
+        style="background:var(--warm-white);border-radius:14px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,.04)">
         <div style="display:grid;grid-template-columns:130px 1fr 1fr;border-bottom:2px solid #eee">
           <div style="padding:14px"></div>
           <div style="padding:14px 18px;border-left:1px solid #eee">
-            <p style="font-size:.5rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-light)">AI-Powered Tools</p>
+            <p
+              style="font-size:.5rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-light)">
+              AI-Powered Tools</p>
             <p style="font-size:.95rem;font-weight:600;color:var(--text);margin-top:3px">AI Creative Tools</p>
             <p style="font-size:.7rem;color:var(--text-light)">Generate assets faster</p>
             <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px">
-              <span style="font-size:.5rem;padding:2px 6px;background:#f0f0f0;border-radius:8px;color:var(--text-light)">Adobe GenStudio</span>
-              <span style="font-size:.5rem;padding:2px 6px;background:#f0f0f0;border-radius:8px;color:var(--text-light)">Jasper</span>
-              <span style="font-size:.5rem;padding:2px 6px;background:#f0f0f0;border-radius:8px;color:var(--text-light)">Canva</span>
-              <span style="font-size:.5rem;padding:2px 6px;background:#f0f0f0;border-radius:8px;color:var(--text-light)">Midjourney</span>
-              <span style="font-size:.5rem;padding:2px 6px;background:#f0f0f0;border-radius:8px;color:var(--text-light)">ChatGPT</span>
+              <span
+                style="font-size:.5rem;padding:2px 6px;background:#f0f0f0;border-radius:8px;color:var(--text-light)">Adobe
+                GenStudio</span>
+              <span
+                style="font-size:.5rem;padding:2px 6px;background:#f0f0f0;border-radius:8px;color:var(--text-light)">Jasper</span>
+              <span
+                style="font-size:.5rem;padding:2px 6px;background:#f0f0f0;border-radius:8px;color:var(--text-light)">Canva</span>
+              <span
+                style="font-size:.5rem;padding:2px 6px;background:#f0f0f0;border-radius:8px;color:var(--text-light)">Midjourney</span>
+              <span
+                style="font-size:.5rem;padding:2px 6px;background:#f0f0f0;border-radius:8px;color:var(--text-light)">ChatGPT</span>
             </div>
           </div>
           <div style="padding:14px 18px;border-left:1px solid #eee">
-            <p style="font-size:.5rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-light)">Operating System</p>
+            <p
+              style="font-size:.5rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-light)">
+              Operating System</p>
             <p style="font-size:.95rem;font-weight:600;color:var(--navy);margin-top:3px">BrandStudios.AI</p>
             <p style="font-size:.7rem;color:var(--text-light)">Create, govern, and learn at scale</p>
           </div>
         </div>
 
         <div style="display:grid;grid-template-columns:130px 1fr 1fr;border-bottom:1px solid #f0f0f0">
-          <div style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">Copy</div>
+          <div
+            style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">
+            Copy</div>
           <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--text-light)">
             <span style="color:#888">✓</span> AI-generated text and headlines
           </div>
@@ -318,7 +853,9 @@
         </div>
 
         <div style="display:grid;grid-template-columns:130px 1fr 1fr;border-bottom:1px solid #f0f0f0">
-          <div style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">Images</div>
+          <div
+            style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">
+            Images</div>
           <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--text-light)">
             <span style="color:#888">✓</span> AI-generated visuals
           </div>
@@ -328,7 +865,9 @@
         </div>
 
         <div style="display:grid;grid-template-columns:130px 1fr 1fr;border-bottom:1px solid #f0f0f0">
-          <div style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">Video</div>
+          <div
+            style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">
+            Video</div>
           <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--text-light)">
             <span style="color:#888">✓</span> AI-assisted video creation
           </div>
@@ -338,7 +877,9 @@
         </div>
 
         <div style="display:grid;grid-template-columns:130px 1fr 1fr;border-bottom:1px solid #f0f0f0">
-          <div style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">Campaigns</div>
+          <div
+            style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">
+            Campaigns</div>
           <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--text-light)">
             <span style="color:#888">✓</span> Asset-by-asset production
           </div>
@@ -348,7 +889,9 @@
         </div>
 
         <div style="display:grid;grid-template-columns:130px 1fr 1fr;border-bottom:1px solid #f0f0f0">
-          <div style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">Scale</div>
+          <div
+            style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">
+            Scale</div>
           <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--text-light)">
             <span style="color:#888">✓</span> More assets, faster
           </div>
@@ -358,7 +901,9 @@
         </div>
 
         <div style="display:grid;grid-template-columns:130px 1fr 1fr;border-bottom:1px solid #f0f0f0">
-          <div style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">Memory</div>
+          <div
+            style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">
+            Memory</div>
           <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--text-light)">
             Session-based, resets each project
           </div>
@@ -368,7 +913,9 @@
         </div>
 
         <div style="display:grid;grid-template-columns:130px 1fr 1fr">
-          <div style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">Learning</div>
+          <div
+            style="padding:10px 14px;font-size:.55rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light)">
+            Learning</div>
           <div style="padding:10px 18px;border-left:1px solid #eee;font-size:.75rem;color:var(--text-light)">
             Starts over every project
           </div>
@@ -402,14 +949,16 @@
         <div class="dimension-card">
           <p class="dimension-label">Execution</p>
           <h3>Creative Studio</h3>
-          <p>Where copy, video, and creative assets are produced under the standard. Humans direct. Tools generate. The operating system governs.</p>
+          <p>Where copy, video, and creative assets are produced under the standard. Humans direct. Tools generate. The
+            operating system governs.</p>
           <p class="dimension-tag">Where work happens</p>
         </div>
 
         <div class="dimension-card">
           <p class="dimension-label">Intelligence</p>
           <h3>Insight Loop</h3>
-          <p>How outcomes and refinements strengthen future decisions. Learning returns to memory and improves precision over time.</p>
+          <p>How outcomes and refinements strengthen future decisions. Learning returns to memory and improves precision
+            over time.</p>
           <p class="dimension-tag">Where learning compounds</p>
         </div>
       </div>
@@ -434,7 +983,8 @@
       <p class="body-lg" style="margin-top:18px;max-width:760px">
         Enterprise marketing has crossed a structural threshold.<br>
         Content volume has exploded. Judgment remains the constraint.<br>
-        Most AI systems optimize for speed and cost. They execute with memory disconnected from the work, and taste left implicit.
+        Most AI systems optimize for speed and cost. They execute with memory disconnected from the work, and taste left
+        implicit.
       </p>
 
       <div class="erosion-box" style="margin-top:26px;max-width:860px">
@@ -523,11 +1073,31 @@
             <p class="fidelity-score">92.14%</p>
           </div>
 
-          <div class="fidelity-row"><span>Brand Similarity</span><div class="fidelity-bar"><div class="fidelity-fill" style="width:100%"></div></div><span class="status status-pass">✓ Strong</span></div>
-          <div class="fidelity-row"><span>Color Alignment</span><div class="fidelity-bar"><div class="fidelity-fill" style="width:97%"></div></div><span class="status status-pass">✓ Strong</span></div>
-          <div class="fidelity-row"><span>Visual Consistency</span><div class="fidelity-bar"><div class="fidelity-fill" style="width:100%"></div></div><span class="status status-pass">✓ Strong</span></div>
-          <div class="fidelity-row"><span>Composition</span><div class="fidelity-bar"><div class="fidelity-fill warn" style="width:50%"></div></div><span class="status status-warn">△ Review</span></div>
-          <div class="fidelity-row" style="border:none"><span>Quality Checks</span><div class="fidelity-bar"><div class="fidelity-fill" style="width:100%"></div></div><span class="status status-pass">✓ Clean</span></div>
+          <div class="fidelity-row"><span>Brand Similarity</span>
+            <div class="fidelity-bar">
+              <div class="fidelity-fill" style="width:100%"></div>
+            </div><span class="status status-pass">✓ Strong</span>
+          </div>
+          <div class="fidelity-row"><span>Color Alignment</span>
+            <div class="fidelity-bar">
+              <div class="fidelity-fill" style="width:97%"></div>
+            </div><span class="status status-pass">✓ Strong</span>
+          </div>
+          <div class="fidelity-row"><span>Visual Consistency</span>
+            <div class="fidelity-bar">
+              <div class="fidelity-fill" style="width:100%"></div>
+            </div><span class="status status-pass">✓ Strong</span>
+          </div>
+          <div class="fidelity-row"><span>Composition</span>
+            <div class="fidelity-bar">
+              <div class="fidelity-fill warn" style="width:50%"></div>
+            </div><span class="status status-warn">△ Review</span>
+          </div>
+          <div class="fidelity-row" style="border:none"><span>Quality Checks</span>
+            <div class="fidelity-bar">
+              <div class="fidelity-fill" style="width:100%"></div>
+            </div><span class="status status-pass">✓ Clean</span>
+          </div>
 
           <div class="fidelity-result">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width:11px;height:11px">
@@ -552,7 +1122,8 @@
             Creative judgment comes from people. BrandStudios.AI carries that judgment forward at enterprise scale.
           </p>
           <p class="body-lg" style="margin-top:14px;max-width:560px">
-            Work is evaluated against the standard before it reaches a human, so attention concentrates where judgment matters most.
+            Work is evaluated against the standard before it reaches a human, so attention concentrates where judgment
+            matters most.
           </p>
 
           <div class="dark-card" style="margin-top:22px">
@@ -564,7 +1135,8 @@
         </div>
 
         <div style="display:flex;justify-content:center;align-items:center">
-          <img src="images/brand_dna_transparent_v2.png" alt="BrandStudios.AI Platform" style="width:100%;max-width:520px">
+          <img src="images/brand_dna_transparent_v2.png" alt="BrandStudios.AI Platform"
+            style="width:100%;max-width:520px">
         </div>
       </div>
     </div>
@@ -577,7 +1149,8 @@
       <p class="theme-label">09 · Performance Signals</p>
       <h2 class="headline"><em>Performance</em> Signals</h2>
       <p class="body-lg" style="margin-top:12px;max-width:860px">
-        These are signals from real workflows as the system learns from people. They reflect compounding clarity, not one-off optimization.
+        These are signals from real workflows as the system learns from people. They reflect compounding clarity, not
+        one-off optimization.
       </p>
 
       <div class="outcomes-grid">
@@ -596,7 +1169,8 @@
 
         <div class="outcome-card">
           <p class="outcome-label">Regulated Industry</p>
-          <div class="outcome-row"><span>Approvals</span><span class="outcome-value change">5 days → 6 hours</span></div>
+          <div class="outcome-row"><span>Approvals</span><span class="outcome-value change">5 days → 6 hours</span>
+          </div>
           <div class="outcome-row"><span>Compliant output</span><span class="outcome-value up">↑ 230%</span></div>
         </div>
       </div>
@@ -612,7 +1186,8 @@
       <p class="theme-label">10 · Enterprise Impact</p>
       <h2 class="headline">Proof → <em>Enterprise Impact</em></h2>
       <p class="body-lg" style="margin-top:14px;max-width:880px">
-        One approved creative reference becomes a reusable standard. From that reference, the system carries judgment forward, applies it across formats, and maintains coherence as output expands.
+        One approved creative reference becomes a reusable standard. From that reference, the system carries judgment
+        forward, applies it across formats, and maintains coherence as output expands.
       </p>
 
       <div class="impact-box">
@@ -622,7 +1197,8 @@
         <div class="impact-item">Confidence increases in what ships</div>
       </div>
 
-      <p class="statement" style="margin-top:28px">One standard.<br>Many executions.<br>Institutional memory for creative work.</p>
+      <p class="statement" style="margin-top:28px">One standard.<br>Many executions.<br>Institutional memory for
+        creative work.</p>
     </div>
     <div class="slide-footer"><span class="logo">BrandStudios<span>.AI</span></span><span>10</span></div>
   </section>
@@ -667,7 +1243,8 @@
       <p class="theme-label" style="justify-content:center">12 · The End State</p>
       <h2 class="display">The <em>End State</em></h2>
       <p class="body-lg" style="margin-top:20px;max-width:820px;margin-left:auto;margin-right:auto">
-        The more the system is used, the more it behaves like a shared creative mind: memory, judgment, and learning carried forward.
+        The more the system is used, the more it behaves like a shared creative mind: memory, judgment, and learning
+        carried forward.
       </p>
       <p class="statement center" style="border:none;padding:0;margin-top:36px">
         Human intelligence.<br>
@@ -697,7 +1274,8 @@
 
   <!-- Footer strip -->
   <section class="slide" style="min-height:auto;padding:36px 60px">
-    <div class="slide-inner" style="display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap">
+    <div class="slide-inner"
+      style="display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap">
       <p style="font-size:.7rem;color:var(--text-light)">© 2026 BrandStudios.AI</p>
       <div class="logo">BrandStudios<span>.AI</span></div>
       <p style="font-size:.7rem;color:var(--text-light)">
@@ -707,4 +1285,5 @@
   </section>
 
 </body>
+
 </html>
